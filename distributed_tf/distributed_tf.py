@@ -32,7 +32,6 @@ def create_model(dataset):
 
 
 def main():
-    # Configure
 
     # Server Setup
     ps_hosts = FLAGS.ps_hosts.split(",")

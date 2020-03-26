@@ -37,7 +37,7 @@ def main():
     global_batch_size = 256
     global_step = tf.train.get_or_create_global_step()
     loss = create_model(create_dataset(hvd.rank(), hvd.size(), global_batch_size))
-    # create an optimizer then wrap it with SynceReplicasOptimizer
+  
     optimizer = tf.train.GradientDescentOptimizer(.0001)
 
     optimizer1 = hvd.DistributedOptimizer(optimizer, op=hvd.Average)

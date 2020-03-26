@@ -1,7 +1,7 @@
 from __future__ import print_function
 import tensorflow as tf
-import tensorflow_datasets as tfds
 import horovod.tensorflow as hvd
+import tensorflow_datasets as tfds
 
 FLAGS = None
 

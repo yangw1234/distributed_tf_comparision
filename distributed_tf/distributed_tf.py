@@ -5,9 +5,6 @@ import argparse
 import time
 
 FLAGS = None
-log_dir = '/logdir'
-REPLICAS_TO_AGGREGATE = 2
-
 
 def map_func(data):
     image = data['image']
@@ -69,8 +66,8 @@ def main():
             # create an optimizer then wrap it with SynceReplicasOptimizer
             optimizer = tf.train.GradientDescentOptimizer(.0001)
             optimizer = tf.train.SyncReplicasOptimizer(optimizer,
-                                                        replicas_to_aggregate=REPLICAS_TO_AGGREGATE,
-                                                        total_num_replicas=2)
+                                                        replicas_to_aggregate=num_task,
+                                                        total_num_replicas=num_task)
 
             opt = optimizer.minimize(loss, global_step=global_step)
 
